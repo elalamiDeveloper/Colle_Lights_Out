@@ -10,6 +10,7 @@ const init = function () {
   const aleatoir = () => {
     const x = Math.floor(Math.random() * 2) + 1;
     return x === 1 ? true : false;
+    // return true;
   };
 
   Object.entries(boxes).forEach(([i, box]) => {
@@ -17,8 +18,13 @@ const init = function () {
     box.setAttribute("active", aleatoir());
   });
 
-  counter = 25;
+  counter = 0;
   counterBox.textContent = 25;
+};
+
+const win = function () {
+  boxes.forEach((box) => box.setAttribute("disabled"));
+  counterBox.textContent = "You Win";
 };
 
 init();
@@ -26,8 +32,9 @@ init();
 boxes.forEach((box) =>
   box.addEventListener("click", function () {
     // Increment Counter
-    counter--;
+    counter++;
     counterBox.textContent = counter;
+    if (counter <= 0) counterBox.textContent = "You Lose ";
 
     // Modifie Active Attribute
     const idClicked = +box.getAttribute("id");
@@ -47,6 +54,11 @@ boxes.forEach((box) =>
         );
       }
     });
+
+    // Check if you win
+    if ([...boxes].every((box) => box.getAttribute("active") === "true")) {
+      win();
+    }
   })
 );
 
