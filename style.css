@@ -1,0 +1,85 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  transition: 0.7s;
+}
+
+body {
+  height: 100vh;
+  background: #f6f6f6;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  font-family: sans-serif;
+}
+
+.container {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: repeat(5, 150px);
+  grid-template-rows: repeat(5, 150px);
+  gap: 5px;
+}
+
+.btns {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  padding: 15px 30px;
+  background: #ff6565;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 700;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #e73232;
+}
+
+.counter {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  font-size: 30px;
+  color: #fff;
+  background: rgb(0, 189, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box {
+  width: 150px;
+  height: 150px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background: red;
+}
+
+.box[active="true"] {
+  background: rgb(255, 255, 57);
+}
+
+.box[active="true"] i {
+  opacity: 1;
+}
+
+.box i {
+  font-size: 50px;
+  opacity: 0;
+}
